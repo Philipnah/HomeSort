@@ -1,7 +1,12 @@
 # This file will be used to select which algorithm you want to run
 
+defaultList = [1, 9, 3, 5, 2, 7, 6, 4, 8]
+print("This will sort the default list.\nEdit the code to select another list.\n")
 
 def start():
+
+	Algo = Algorithms()
+
 	algorithms = [
 		"bubble sort",
 		"bucket"
@@ -24,9 +29,10 @@ def start():
 				# Try to make these following if-statements shorter, perhaps by using another method.
 				if n == 0:
 					print("0")
-					Algorithms.BubbleSort(SortThis)
+					Algo.BubbleSort(defaultList)
 				elif n == 1:
-					Algorithms.Bucket(SortThis)
+					#Algo.Bucket(defaultList)
+					break
 				else:
 					print("Error, could not find your function to run.")
 
@@ -35,40 +41,34 @@ def start():
 		print("Your choice is not available.")
 
 class Algorithms:
-	#def swap(self, a, b):
-	#	c = a
 
-
-	def BubbleSort(self):
-		i = 0
-		j = i + 1
-		
+	def BubbleSort(self, inputList):
 		n = 0
-		while n < len(SortThis):
-			while i < len(SortThis) - n:
+		while n < len(inputList) - 1:
+			i = 0
+			while i < len(inputList) - n - 1:
+				j = i + 1
 
-				a = SortThis[i]
-				b = SortThis[j]
+				a = inputList[i]
+				b = inputList[j]
 
 				if a > b:
-					c = a
-					a = b
-					b = c
-					print(SortThis)
-
-					#swap(a, b)
+					inputList[i] = b
+					inputList[j] = a
+					print("swapped " + str(i) + " & " + str(j))
 				else:
 					pass
 
 				i += 1
 			n += 1
+		print(inputList)
+		
 
 
 
-	def Bucket(self):
+
+	def Bucket(self, inputList):
 		pass
 
-SortThis = [1, 9, 3, 5, 2, 7, 6, 4, 8]
-print("This will sort the default list.\nEdit the code to select another list.\n")
 
 start()

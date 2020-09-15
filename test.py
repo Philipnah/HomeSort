@@ -6,7 +6,6 @@ def BubbleSort():
 	n = 0
 	while n < len(sortThis) - 1:
 		i = 0
-		
 		while i < len(sortThis) - n - 1:
 			j = i + 1
 
@@ -16,12 +15,9 @@ def BubbleSort():
 			if a > b:
 				sortThis[i] = b
 				sortThis[j] = a
-				print("swapped")
-				
-
-				#swap(a, b)
+				print("swapped " + str(i) + " & " + str(j))
 			else:
-				print(str(i) + " " + str(j) + " " + "nothing was swapped")
+				pass
 
 			i += 1
 		n += 1
