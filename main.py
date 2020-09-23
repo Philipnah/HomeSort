@@ -6,8 +6,8 @@ import time
 randomList = []
 
 i = 0
-while i < 1000:
-	randomList.append(randint(1, 1000))
+while i < 5000:
+	randomList.append(randint(1, 5000))
 	i += 1
 
 
@@ -20,7 +20,7 @@ preRandomList = [808, 406, 596, 725, 589, 115, 233, 797, 627, 982, 399, 729, 97,
 defaultList = [1, 9, 3, 5, 2, 7, 6, 4, 8]
 
 
-whichList = int(input("What list do you want to use?\n1. Random list\n2. Predefined random list\n3. Default list\n\n"))
+whichList = int(input("What list do you want to use?\n1. Random list (5000)\n2. Predefined random list (1000)\n3. Default list (10)\n\n"))
 
 if whichList == 1:
 	usedList = randomList
@@ -58,11 +58,13 @@ def start():
 				# Try to make these following if-statements shorter, perhaps by using another method.
 				if n == 0:
 					start_time = time.time()
-					Algo.BubbleSort(usedList)
+					newList = Algo.Bubble(usedList)
+					print(newList)
 					print("--- %s seconds ---" % (time.time() - start_time))
 				elif n == 1:
-					#Algo.Bucket(usedList)
-					break
+					start_time = time.time()
+					Algo.Bucket(usedList)
+					print("--- %s seconds ---" % (time.time() - start_time))
 				else:
 					print("Error, could not find your function to run.")
 
@@ -72,10 +74,10 @@ def start():
 
 class Algorithms:
 
-	def BubbleSort(self, inputList):
+	def Bubble(self, inputList):
 		n = 0
 		while n < len(inputList) - 1:
-			print("Iteration " + str(n))
+			print("Iteration " + str(n + 1))
 			i = 0
 			while i < len(inputList) - n - 1:
 				j = i + 1
@@ -91,13 +93,78 @@ class Algorithms:
 
 				i += 1
 			n += 1
-		print(inputList)
-		
-
+		return inputList
 
 
 	def Bucket(self, inputList):
-		pass
+
+		Algo = Algorithms()
+
+		# can this be optimised?
+		bucket1 = []
+		bucket2 = []
+		bucket3 = []
+		bucket4 = []
+		bucket5 = []
+		bucket6 = []
+		bucket7 = []
+		bucket8 = []
+		bucket9 = []
+		bucket10 = []
+
+		finalBucket = []
+
+		interval = 100
+
+		n = 0
+		while n < len(inputList):
+
+			# can this be optimised?
+			if inputList[n] < interval and inputList[n] > interval - interval:
+				bucket1.append(inputList[n])
+
+			if inputList[n] < interval*2 and inputList[n] > interval*2 - interval:
+				bucket2.append(inputList[n])
+
+			if inputList[n] < interval*3 and inputList[n] > interval*3 - interval:
+				bucket3.append(inputList[n])
+
+			if inputList[n] < interval*4 and inputList[n] > interval*4 - interval:
+				bucket4.append(inputList[n])
+
+			if inputList[n] < interval*5 and inputList[n] > interval*5 - interval:
+				bucket5.append(inputList[n])
+
+			if inputList[n] < interval*6 and inputList[n] > interval*6 - interval:
+				bucket6.append(inputList[n])
+			
+			if inputList[n] < interval*7 and inputList[n] > interval*7 - interval:
+				bucket7.append(inputList[n])
+			
+			if inputList[n] < interval*8 and inputList[n] > interval*8 - interval:
+				bucket8.append(inputList[n])
+			
+			if inputList[n] < interval*9 and inputList[n] > interval*9 - interval:
+				bucket9.append(inputList[n])
+			
+			if inputList[n] < interval*10 and inputList[n] > interval*10 - interval:
+				bucket10.append(inputList[n])
+			
+			n += 1
+
+		finalBucket.append(Algo.Bubble(bucket1))
+		finalBucket.append(Algo.Bubble(bucket2))
+		finalBucket.append(Algo.Bubble(bucket3))
+		finalBucket.append(Algo.Bubble(bucket4))
+		finalBucket.append(Algo.Bubble(bucket5))
+		finalBucket.append(Algo.Bubble(bucket6))
+		finalBucket.append(Algo.Bubble(bucket7))
+		finalBucket.append(Algo.Bubble(bucket8))
+		finalBucket.append(Algo.Bubble(bucket9))
+		finalBucket.append(Algo.Bubble(bucket10))
+
+		print(finalBucket)
+		
 
 
 start()
